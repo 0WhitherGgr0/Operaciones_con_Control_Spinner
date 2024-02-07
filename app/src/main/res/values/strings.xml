@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Operaciones con el Control Spinner</string>
+    <string name="txt_valor1_String">Ingrese el primer valor </string>
+    <string name="txt_valor2_String">Ingrese el segundo valor </string>
+    <string name="button">CALCULAR </string>
+    <string name="tv_calcular"> Resultado </string>
+
+</resources>
