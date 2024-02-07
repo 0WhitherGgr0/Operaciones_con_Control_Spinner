@@ -28,40 +28,46 @@ public class MainActivity extends AppCompatActivity {
 
         String [] opciones = {"Sumar", "Restar", "Multiplicar", "Dividir"};
 
-        ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
+        //Sin modificar El control Spinner
+        //ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, opciones);
+
+        //Modificando El control Spinner
+        //spinner_item_formato: Fue creado para el diseño para el spinner
+        ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item_formato, opciones);
+
+
         spinner1.setAdapter(adapter);
     }
 
     //Metodo del boton
-    public void Calcular(View view){
+    public void calcular(View view) {
         String et1_String = et1.getText().toString();
         String et2_String = et2.getText().toString();
 
-        int valor1_int = Integer.parseInt(et1_String);
-        int valor2_int = Integer.parseInt(et2_String);
+        double valor1_double = Double.parseDouble(et1_String);
+        double valor2_double = Double.parseDouble(et2_String);
 
         String seleccion = spinner1.getSelectedItem().toString();
-        if(seleccion.equals("Sumar")){
-            int suma = valor1_int + valor2_int;
-            String Resultado =  String.valueOf(suma);
-            tv1.setText(Resultado);
-        }else if(seleccion.equals("Restar")){
-            int Resta = valor1_int - valor2_int;
-            String Resultado =  String.valueOf(Resta);
-            tv1.setText(Resultado);
-        }else if(seleccion.equals("Multiplicar")){
-            int Multiplicacion = valor1_int * valor2_int;
-            String Resultado =  String.valueOf(Multiplicacion);
-            tv1.setText(Resultado);
-        }else if(seleccion.equals("Dividir")){
-            if(valor2_int != 0){
-                int Dividision = valor1_int / valor2_int;
-                String Resultado =  String.valueOf(Dividision);
-                tv1.setText(Resultado);
-            }else{
-                Toast.makeText(this,"No se puede dividir entre cero", Toast.LENGTH_LONG).show();
+        if (seleccion.equals("Sumar")) {
+            double suma = valor1_double + valor2_double;
+            String resultado = String.valueOf(suma);
+            tv1.setText(resultado);
+        } else if (seleccion.equals("Restar")) {
+            double resta = valor1_double - valor2_double;
+            String resultado = String.valueOf(resta);
+            tv1.setText(resultado);
+        } else if (seleccion.equals("Multiplicar")) {
+            double multiplicacion = valor1_double * valor2_double;
+            String resultado = String.valueOf(multiplicacion);
+            tv1.setText(resultado);
+        } else if (seleccion.equals("Dividir")) {
+            if (valor2_double != 0) {
+                double division = valor1_double / valor2_double;
+                String resultado = String.valueOf(division);
+                tv1.setText(resultado);
+            } else {
+                Toast.makeText(this, "No se puede dividir entre cero", Toast.LENGTH_LONG).show();
             }
-
         }
     }
 
